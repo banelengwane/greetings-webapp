@@ -1,4 +1,4 @@
-function Greeter(storage){
+module.exports = function Greeter(storage){
   var empty = '';
   var tempObj = storage || {};
 

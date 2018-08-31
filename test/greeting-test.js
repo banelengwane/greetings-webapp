@@ -1,3 +1,6 @@
+let assert = require('assert');
+let Greeter = require('../greeting');
+
 describe('The Greetings function' , function(){
     it('Should return the name entered by the user on the selected language' , function(){
       var Obj = {};
