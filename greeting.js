@@ -48,6 +48,15 @@ module.exports = function Greeter(storage){
       //}
   }
 
+  function getGreetData(){
+    return {
+      name,
+      taal,
+      timestamp: new Date(),
+      count: greetCount()
+    }
+  }
+
   function greetCount(){
     var sum = 0;
     for(var key in tempObj){
@@ -67,6 +76,7 @@ module.exports = function Greeter(storage){
   }
   return{
     greet,
+    getGreetData,
     greetCount,
     returnMap,
     clean

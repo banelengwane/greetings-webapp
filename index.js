@@ -42,8 +42,17 @@ app.get("/", function(req, res){
 });
 
 app.get('/greeted', function(req, res){
-  res.render('greeted',  )
+  res.render('greeted', getGreetData())
 });
+
+app.post('/greetings', function (req, res){
+    let textArea = req.body.greetingsArea;
+    let lang = req.body.language;
+
+    greetings.greet(textArea, lang);
+
+    res.redirect('/');
+})
 
 let PORT = process.env.PORT || 3013;
 
