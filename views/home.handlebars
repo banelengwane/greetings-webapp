@@ -3,29 +3,40 @@
     <meta name="viewport" content="width=device-width" />
 
     <div class="container">
+      <div class='error'>
+        {{error}}
+      </div>
+
+      <div class='success'>
+        {{success}}
+      </div>
+
       <div class="row">
         <h1>Greetings</h1>
       </div>
-      <div class="row">
-        <span class="label-body" >Name</span>
-        <input type="text" name="" value="" placeholder="enter a name " class="theName" id="theName">
-      </div>
-      <div class="row">
-        <input type="radio" name="language" class="language" value="English">
-        <span class="label-body" >English</span>
-        <input type="radio" name="language" class="language" value="Afrikaans">
-        <span class="label-body" >Afrikaans</span>
-        <input type="radio" name="language" class="language" value="IsiXhosa">
-        <span class="label-body" >IsiXhosa</span>
 
-      </div>
       <div class="row">
-        <h3>Counter: <span class="numberOfGreetings" >0</span></h3>
-        <button class="button-primary greetMeBtn" on type="button" name="button">Greetme</button>
-        <button class="button-primary resetBtn" on type="button" name="button">Reset</button>
-      </div>
+        <form action="/greetings" method="post">
+          <div class="row">
+            <span class="label-body" >Name</span>
+            <input type="text" name="greetingArea" value="" placeholder="enter a name " class="theName" id="theName">
+          </div>
+          <input type="radio" name="language" class="language" value="English">
+          <span class="label-body" >English</span>
+          <input type="radio" name="language" class="language" value="Afrikaans">
+          <span class="label-body" >Afrikaans</span>
+          <input type="radio" name="language" class="language" value="IsiXhosa">
+          <span class="label-body" >IsiXhosa</span>
 
-      <div class="row printHere">
-        <p></p>
+          <div class="row">
+            <a href="greeted"><h3>Counter: <span class="numberOfGreetings" >0</span></h3></a>
+            <button class="button-primary greetMeBtn" on type="submit" name="button">Greetme</button>
+            <button class="button-primary resetBtn" on type="submit" name="button">Reset</button>
+          </div>
+
+        </form>
       </div>
+        <div class="row printHere">
+          {{greet}}
+        </div>
     </div>

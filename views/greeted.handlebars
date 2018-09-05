@@ -1,0 +1,15 @@
+<div class="row">
+  <h3>Greeted Users</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Language</th>
+      <th>When</th>
+    </tr>
+    {{#each greeted}}
+      <td>{{name}}</td>
+      <td>{{language}}</td>
+      <td>{{time}}</td>
+    {{/each}}
+  </table>
+</div>
