@@ -48,10 +48,18 @@ module.exports = function Greeter(storage){
       //}
   }
 
+  function getName(name){
+    return name;
+  }
+
+  function getLang(taal){
+    return taal;
+  }
+
   function getGreetData(){
     return {
-      name,
-      taal,
+      name: getName(),
+      language: getLang(),
       timestamp: new Date(),
       count: greetCount()
     }

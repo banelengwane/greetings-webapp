@@ -13,7 +13,12 @@ const greetings = Greeter();
 
 //setting up handlebars
 let myhbp = exphbs.create({
-  defaultLayout: 'main'
+  defaultLayout: 'main',
+  helpers: {
+		'time': function () {
+			return Moment(this.timestamp).fromNow();
+    }
+  }
 });
 
 app.engine('handlebars', myhbp.engine);
@@ -38,20 +43,22 @@ app.use(bodyParser.json());
 app.use(express.static('public/'));
 
 app.get("/", function(req, res){
-  res.render('home');
+  res.render('home',{count:greetings.greetCount()});
 });
 
 app.get('/greeted', function(req, res){
-  res.render('greeted', getGreetData())
+  res.render('greeted', {
+    greet: greetings.getGreetData()
+  });
 });
 
 app.post('/greetings', function (req, res){
-    let textArea = req.body.greetingsArea;
+    let textArea = req.body.greetingArea;
     let lang = req.body.language;
 
     greetings.greet(textArea, lang);
-
-    res.redirect('/');
+    greetings.greetCount();
+    res.render('home',{count:greetings.greetCount(), greet:greetings.greet(textArea, lang)});
 })
 
 let PORT = process.env.PORT || 3013;

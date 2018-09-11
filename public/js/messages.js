@@ -9,4 +9,4 @@ document.eventListener('DOMContentLoaded', function(){
       successMsgElem.innerHTML = '';
     }, 3000)
   }
-})
+});

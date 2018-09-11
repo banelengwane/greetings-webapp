@@ -7,9 +7,10 @@
       <th>When</th>
     </tr>
     {{#each greeted}}
-      <td>{{name}}</td>
-      <td>{{language}}</td>
-      <td>{{time}}</td>
+      <td>{{greeted.name}}</td>
+      <td>{{greeted.language}}</td>
+      <td>{{greeting.time}}</td>
     {{/each}}
   </table>
+  <button onclick="goBack()">Go Back</button>
 </div>
