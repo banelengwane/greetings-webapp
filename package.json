@@ -19,7 +19,8 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
     "mocha": "^5.2.0"

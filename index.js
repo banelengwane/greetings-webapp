@@ -4,12 +4,36 @@ let bodyParser = require('body-parser');
 let Moment = require('moment');
 let flash = require('express-flash');
 let session = require('express-session');
+let routes = require('./routes/greetingsRoute')
+let pg = require('pg');
+let Pool = pg.Pool;
+
+// should we use a SSL connection
+let useSSL = false;
+let local = process.env.LOCAL || false;
+if (process.env.DATABASE_URL && !local){
+    useSSL = true;
+}
+// which db connection to use
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:coder123@localhost/greetings';
+
+const pool = new Pool({
+    connectionString,
+    ssl : useSSL
+  });
 
 let app = express();
 
-const Greeter = require('./greeting');
-const greetings = Greeter();
+  app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(flash());
 
+const Greeter = require('./greeting');
+const greetings = Greeter(pool);
+const greetingsRoute = routes(greetings)
 
 //setting up handlebars
 let myhbp = exphbs.create({
@@ -42,24 +66,11 @@ app.use(bodyParser.json());
 //adding public folder
 app.use(express.static('public/'));
 
-app.get("/", function(req, res){
-  res.render('home',{count:greetings.greetCount()});
-});
+app.get("/", greetingsRoute.counted);
 
-app.get('/greeted', function(req, res){
-  res.render('greeted', {
-    greet: greetings.getGreetData()
-  });
-});
+app.get('/greeted', greetingsRoute.greeted);
 
-app.post('/greetings', function (req, res){
-    let textArea = req.body.greetingArea;
-    let lang = req.body.language;
-
-    greetings.greet(textArea, lang);
-    greetings.greetCount();
-    res.render('home',{count:greetings.greetCount(), greet:greetings.greet(textArea, lang)});
-})
+app.post('/greetings', greetingsRoute.toGreet)
 
 let PORT = process.env.PORT || 3013;
 

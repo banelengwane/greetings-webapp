@@ -2,7 +2,7 @@ module.exports = function Greeter(storage){
   var empty = '';
   var tempObj = storage || {};
 
-  function greet(name, taal){
+  async function greet(name, taal){
 
       if (!taal){
           return 'Select a language'
@@ -48,15 +48,15 @@ module.exports = function Greeter(storage){
       //}
   }
 
-  function getName(name){
+  async function getName(name){
     return name;
   }
 
-  function getLang(taal){
+  async function getLang(taal){
     return taal;
   }
 
-  function getGreetData(){
+  async function getGreetData(){
     return {
       name: getName(),
       language: getLang(),
@@ -65,7 +65,7 @@ module.exports = function Greeter(storage){
     }
   }
 
-  function greetCount(){
+  async function greetCount(){
     var sum = 0;
     for(var key in tempObj){
       if(tempObj.hasOwnProperty(key)){
