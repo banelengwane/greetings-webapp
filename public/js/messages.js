@@ -10,3 +10,10 @@ document.eventListener('DOMContentLoaded', function(){
     }, 3000)
   }
 });
+
+function resetMe(){
+  greeting.clean();
+  numberOfGreetings.innerHTML = 0;
+  document.getElementById('greetingArea').value = '';
+}
+resetBtn.addEventListener('click', resetMe);

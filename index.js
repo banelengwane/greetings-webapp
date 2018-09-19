@@ -75,5 +75,6 @@ app.post('/greetings', greetingsRoute.toGreet)
 let PORT = process.env.PORT || 3013;
 
 app.listen(PORT, function(){
+  console.log(greetings.greetCount());
   console.log("App started on Port, ", PORT);
 });
