@@ -1,42 +1,49 @@
-    <link rel="stylesheet" href="/css/skeleton.css" type="text/css"/>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="/css/skeleton.css" type="text/css" />
+<script src="messages.js"></script>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta name="viewport" content="width=device-width" />
 
-    <div class="container">
-      <div class='error'>
-        {{error}}
-      </div>
+<div class="container">
+  <div class='error'>
+    {{error}}
+  </div>
 
-      <div class='success'>
-        {{success}}
+  <div class='success'>
+    {{success}}
+  </div>
+
+  <div class="row">
+    <h1>Greetings</h1>
+  </div>
+
+  <div class="row">
+    <form action="/greetings" method="post">
+      <div class="row">
+        <span class="label-body">Name</span>
+        <input type="text" name="greetingArea" value="" placeholder="enter a name " class="theName" id="theName">
       </div>
+      <input type="radio" name="language" class="language" value="English">
+      <span class="label-body">English</span>
+      <input type="radio" name="language" class="language" value="Afrikaans">
+      <span class="label-body">Afrikaans</span>
+      <input type="radio" name="language" class="language" value="IsiXhosa">
+      <span class="label-body">IsiXhosa</span>
 
       <div class="row">
-        <h1>Greetings</h1>
+        <a href="greeted">
+          <h3>Counter: <span class="numberOfGreetings">{{count}}</span></h3>
+        </a>
+        <button class="button-primary greetMeBtn" on type="submit" name="button">Greetme</button>
       </div>
 
-      <div class="row">
-        <form action="/greetings" method="post">
-          <div class="row">
-            <span class="label-body" >Name</span>
-            <input type="text" name="greetingArea" value="" placeholder="enter a name " class="theName" id="theName">
-          </div>
-          <input type="radio" name="language" class="language" value="English">
-          <span class="label-body" >English</span>
-          <input type="radio" name="language" class="language" value="Afrikaans">
-          <span class="label-body" >Afrikaans</span>
-          <input type="radio" name="language" class="language" value="IsiXhosa">
-          <span class="label-body" >IsiXhosa</span>
+    </form>
+  </div>
+  <div class="row printHere">
+    {{greet}}
+  </div>
 
-          <div class="row">
-            <a href="greeted"><h3>Counter: <span class="numberOfGreetings" >{{count}}</span></h3></a>
-            <button class="button-primary greetMeBtn" on type="submit" name="button">Greetme</button>
-            <button class="button-primary resetBtn" on type="submit" name="button">Reset</button>
-          </div>
-
-        </form>
-      </div>
-        <div class="row printHere">
-          {{greet}}
-        </div>
+    <div>
+      <a href="/clear"> Reset </a>
     </div>
+
+</div>

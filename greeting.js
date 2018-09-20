@@ -71,17 +71,20 @@ module.exports = function Greeter (pool) {
         return sum;
     }
 
-    // function returnMap () {
-    //     return tempObj;
-    // }
-
-    // function clean () {
-    //     tempObj = {};
-    // }
+    async function clearValues () {
+        let results = await pool.query('delete from names');
+        let id = await pool.query('ALTER SEQUENCE names_id_seq RESTART 1');
+        
+        return {
+            reset: results.rows,
+            id: id.rows
+        };
+    }
 
     return {
         greet,
         getGreetData,
-        greetCount
+        greetCount,
+        clearValues
     };
 };

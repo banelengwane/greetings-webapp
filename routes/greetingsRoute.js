@@ -30,7 +30,9 @@ module.exports = function GreetingsRoute (greetings) {
 
     async function clear (req, res) {
         try {
-            res.render('home');
+            res.render('home', { clear: await greetings.clearValues() },
+                   
+            );
         } catch (err) {
             console.log(err);
         }
@@ -43,3 +45,4 @@ module.exports = function GreetingsRoute (greetings) {
         clear
     };
 }
+;

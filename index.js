@@ -72,6 +72,8 @@ app.get('/greeted', greetingsRoute.greeted);
 
 app.post('/greetings', greetingsRoute.toGreet);
 
+app.get('/clear', greetingsRoute.clear);
+
 let PORT = process.env.PORT || 3013;
 
 app.listen(PORT, function () {

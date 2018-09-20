@@ -41,6 +41,17 @@ describe('Greeting widget', function () {
         assert.strictEqual(count, 2);
     });
 
+    it('Should clear the database', async function () {
+        let greetings = Greeter(pool);
+        let greeting = await greetings.greet('Busisile', 'IsiXhosa');
+        let greeting2 = await greetings.greet('Banele', 'English');
+        let count = await greetings.greetCount();
+        assert.strictEqual(greeting, 'Molo Busisile');
+        assert.strictEqual(greeting2, 'Good day Banele');
+        assert.strictEqual(count, 2);
+        assert.deepStrictEqual(await greetings.clearValues(), { reset: [], id: [] });
+    });
+
     after(function () {
         pool.end();
     });
