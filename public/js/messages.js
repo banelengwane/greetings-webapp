@@ -10,8 +10,3 @@ document.eventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 });
-
-function resetMe () {
-    document.getElementById('greetingArea').value = '';
-}
-resetBtn.addEventListener('click', resetMe);

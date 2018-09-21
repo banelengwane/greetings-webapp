@@ -45,7 +45,7 @@ module.exports = function Greeter (pool) {
         } else if (taal === 'IsiXhosa') {
             return 'Molo ' + name;
         }
-        // }
+    // }
     }
 
     async function getName (name) {
@@ -61,7 +61,8 @@ module.exports = function Greeter (pool) {
             name: getName(),
             language: getLang(),
             timestamp: new Date(),
-            count: greetCount()
+            count: greetCount(),
+            users: greetedUsers()
         };
     }
 
@@ -74,17 +75,29 @@ module.exports = function Greeter (pool) {
     async function clearValues () {
         let results = await pool.query('delete from names');
         let id = await pool.query('ALTER SEQUENCE names_id_seq RESTART 1');
-        
         return {
             reset: results.rows,
             id: id.rows
         };
     }
 
+    async function greetedUsers () {
+        const countUsers = await pool.query('select user_name from names');
+        const users = countUsers.rows;
+        const userList = [];
+        for (var key in users) {
+            if (users.hasOwnProperty(key)) {
+                userList.push(users[key]);
+            }
+        }
+        return userList;
+    }
+
     return {
         greet,
         getGreetData,
         greetCount,
-        clearValues
+        clearValues,
+        greetedUsers
     };
 };

@@ -13,7 +13,8 @@ module.exports = function GreetingsRoute (greetings) {
     async function greeted (req, res) {
         try {
             res.render('greeted', {
-                greet: await greetings.getGreetData()
+                greet: await greetings.getGreetData(),
+                users: await greetings.greetedUsers()
             });
         } catch (err) {
             // err
@@ -30,11 +31,11 @@ module.exports = function GreetingsRoute (greetings) {
 
     async function clear (req, res) {
         try {
-            res.render('home', { clear: await greetings.clearValues() },
-                   
+            res.render('home', { clear: await greetings.clearValues(),
+                count: await greetings.greetCount() }
             );
         } catch (err) {
-            console.log(err);
+            // err
         }
     }
     // return functions
