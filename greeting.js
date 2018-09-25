@@ -48,9 +48,9 @@ module.exports = function Greeter (pool) {
     // }
     }
 
-    async function getName (name) {
-        return name;
-    }
+    // async function getName (name) {
+    //     return name;
+    // }
 
     async function getLang (taal) {
         return taal;
@@ -59,7 +59,7 @@ module.exports = function Greeter (pool) {
     async function getGreetData () {
         return {
             igama: greetedUsers(),
-            language: getLang(),
+            language: getLang()
         };
     }
 

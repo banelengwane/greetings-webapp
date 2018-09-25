@@ -11,14 +11,18 @@ const pool = new Pool({
 });
 
 describe('Greeting widget', function () {
-    beforeEach(async function () {
-        await pool.query('delete from names');
-    });
+    // beforeEach( async function () {
+    //     await pool.query('delete from names');
+    // });
 
     it('Should return a greeting for a name entered', async function () {
         let greetings = Greeter(pool);
         let greeting1 = await greetings.greet('banele', 'English');
         assert.strictEqual(greeting1, 'Good day banele');
+    });
+        
+    beforeEach( async function () {
+        await pool.query('delete from names');
     });
 
     it('should have a counter of 1 after greeting 1 user twice', async function () {
@@ -30,7 +34,11 @@ describe('Greeting widget', function () {
         assert.strictEqual(1, counter);
     // assert.strictEqual(greeting1, 'Good day banele');
     });
-
+    
+    beforeEach( async function () {
+        await pool.query('delete from names');
+    });
+    
     it('Should return a greeting and count the number of greetings', async function () {
         let greetings = Greeter(pool);
         let greeting = await greetings.greet('Busisile', 'IsiXhosa');
@@ -40,7 +48,11 @@ describe('Greeting widget', function () {
         assert.strictEqual(greeting2, 'Good day Banele');
         assert.strictEqual(count, 2);
     });
-
+    
+    beforeEach( async function () {
+        await pool.query('delete from names');
+    });
+    
     it('Should clear the database', async function () {
         let greetings = Greeter(pool);
         let greeting = await greetings.greet('Busisile', 'IsiXhosa');
@@ -50,6 +62,10 @@ describe('Greeting widget', function () {
         assert.strictEqual(greeting2, 'Good day Banele');
         assert.strictEqual(count, 2);
         assert.deepStrictEqual(await greetings.clearValues(), { reset: [], id: [] });
+    });
+
+    beforeEach( async function () {
+        await pool.query('delete from names');
     });
 
     it('should return all names in the db', async function () {
