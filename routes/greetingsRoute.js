@@ -10,7 +10,7 @@ module.exports = function GreetingsRoute (greetings) {
         }
     }
 
-    async function greeted (req, res) {
+    async function greetedUsers (req, res) {
         try {
             res.render('greeted', {
                 greet: await greetings.getGreetData(),
@@ -41,7 +41,7 @@ module.exports = function GreetingsRoute (greetings) {
     // return functions
     return {
         toGreet,
-        greeted,
+        greetedUsers,
         counted,
         clear
     };

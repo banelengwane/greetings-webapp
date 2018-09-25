@@ -58,11 +58,8 @@ module.exports = function Greeter (pool) {
 
     async function getGreetData () {
         return {
-            name: getName(),
+            igama: greetedUsers(),
             language: getLang(),
-            timestamp: new Date(),
-            count: greetCount(),
-            users: greetedUsers()
         };
     }
 

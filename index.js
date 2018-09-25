@@ -68,7 +68,7 @@ app.use(express.static('public/'));
 
 app.get('/', greetingsRoute.counted);
 
-app.get('/greeted', greetingsRoute.greeted);
+app.get('/greeted', greetingsRoute.greetedUsers);
 
 app.post('/greetings', greetingsRoute.toGreet);
 
