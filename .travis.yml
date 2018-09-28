@@ -7,7 +7,7 @@ env:
     
 before_script:
   - psql -c 'create database greet_test;' -U postgres
-  - psql -U postgres -d greet_test -a -f tables.sql
+  - psql -U postgres -d greet_test -a -f table.sql
 
 addons:
     apt:

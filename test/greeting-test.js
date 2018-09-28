@@ -78,11 +78,7 @@ describe('Greeting widget', function () {
         assert.strictEqual(count, 2);
         assert.deepStrictEqual(await greetings.greetedUsers(), [ { user_name: 'busisile' }, { user_name: 'banele' } ]);
     });
-
-    beforeEach(async function () {
-        await pool.query('delete from names');
-    });
-
+    
     after(function () {
         pool.end();
     });
