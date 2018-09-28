@@ -20,8 +20,8 @@ describe('Greeting widget', function () {
         let greeting1 = await greetings.greet('banele', 'English');
         assert.strictEqual(greeting1, 'Good day banele');
     });
-        
-    beforeEach( async function () {
+
+    beforeEach(async function () {
         await pool.query('delete from names');
     });
 
@@ -34,11 +34,11 @@ describe('Greeting widget', function () {
         assert.strictEqual(1, counter);
     // assert.strictEqual(greeting1, 'Good day banele');
     });
-    
-    beforeEach( async function () {
+
+    beforeEach(async function () {
         await pool.query('delete from names');
     });
-    
+
     it('Should return a greeting and count the number of greetings', async function () {
         let greetings = Greeter(pool);
         let greeting = await greetings.greet('Busisile', 'IsiXhosa');
@@ -48,11 +48,11 @@ describe('Greeting widget', function () {
         assert.strictEqual(greeting2, 'Good day Banele');
         assert.strictEqual(count, 2);
     });
-    
-    beforeEach( async function () {
+
+    beforeEach(async function () {
         await pool.query('delete from names');
     });
-    
+
     it('Should clear the database', async function () {
         let greetings = Greeter(pool);
         let greeting = await greetings.greet('Busisile', 'IsiXhosa');
@@ -64,7 +64,7 @@ describe('Greeting widget', function () {
         assert.deepStrictEqual(await greetings.clearValues(), { reset: [], id: [] });
     });
 
-    beforeEach( async function () {
+    beforeEach(async function () {
         await pool.query('delete from names');
     });
 
@@ -77,6 +77,10 @@ describe('Greeting widget', function () {
         assert.strictEqual(greeting2, 'Good day Banele');
         assert.strictEqual(count, 2);
         assert.deepStrictEqual(await greetings.greetedUsers(), [ { user_name: 'busisile' }, { user_name: 'banele' } ]);
+    });
+
+    beforeEach(async function () {
+        await pool.query('delete from names');
     });
 
     after(function () {
