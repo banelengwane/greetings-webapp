@@ -3,11 +3,11 @@ node_js:
   - "v9.5.0"
 
 env:
-     - DATABASE_URL=postgresql://coder:coder123@localhost/greet-test
+     - DATABASE_URL=postgresql://coder:coder123@localhost/greetings
     
 before_script:
-  - psql -c 'create database greet-test;' -U postgres
-  - psql -U postgres -d greet-test -a -f table.sql
+  - psql -c 'create database greetings;' -U postgres
+  - psql -U postgres -d greetings -a -f table.sql
 
 addons:
     apt:
