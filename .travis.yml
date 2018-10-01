@@ -6,7 +6,7 @@ env:
      - DATABASE_URL=postgresql://coder:coder123@localhost/greet-test
     
 before_script:
-  - psql -c 'create database greet test;' -U postgres
+  - psql -c 'create database greet-test;' -U postgres
   - psql -U postgres -d greet-test -a -f table.sql
 
 addons:
