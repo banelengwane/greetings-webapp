@@ -3,7 +3,7 @@ node_js:
   - "v9.5.0"
 
 env:
-     - DATABASE_URL=postgresql://coder:coder123@localhost/greetings
+     - DATABASE_URL=postgresql://postgres@localhost/greetings
     
 before_script:
   - psql -c 'create database greetings;' -U postgres
