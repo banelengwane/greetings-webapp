@@ -38,7 +38,15 @@ module.exports = function GreetingsRoute (greetings) {
         }
     }
 
+    async function name (req, res) {
+        let newName = req.params.user_name;
+        let person = await greetings.getNames(newName);
+        let users = person[0].counter;
+        res.render('count', { counter: users, user_name: newName });
+    }
+
     return {
+        name,
         toGreet,
         greetedUsers,
         counted,

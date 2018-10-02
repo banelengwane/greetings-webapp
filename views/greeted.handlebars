@@ -3,18 +3,15 @@
   <table>
     <tr>
       <th>Names</th>
-      <th>Counted</th>
     </tr>
       {{#each users}}
     <tr>
           <td class="{{user_name}}">
-            <a href="/name">{{user_name}}</a>
+            <a href="/name/{{user_name}}">{{user_name}}</a>
           </td> 
-          <td>
-            {{counter}}
-          </td>
     </tr>
     {{/each}}
   </table>
 
+ 
 </div>

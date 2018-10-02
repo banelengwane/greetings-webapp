@@ -72,6 +72,8 @@ app.get('/greeted', greetingsRoute.greetedUsers);
 
 app.post('/greetings', greetingsRoute.toGreet);
 
+app.get('/name/:user_name', greetingsRoute.name)
+
 app.get('/clear', greetingsRoute.clear);
 
 let PORT = process.env.PORT || 3013;

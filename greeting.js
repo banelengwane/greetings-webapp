@@ -78,6 +78,11 @@ module.exports = function Greeter (pool) {
         };
     }
 
+    async function getNames (name) {
+        const countUsers = await pool.query('select * from names where user_name=$1', [name]);
+        return countUsers.rows;
+    }
+
     async function greetedUsers () {
         const countUsers = await pool.query('select user_name, counter from names');
         const names = countUsers.rows;
@@ -96,6 +101,7 @@ module.exports = function Greeter (pool) {
         getGreetData,
         greetCount,
         clearValues,
-        greetedUsers
+        greetedUsers,
+        getNames
     };
 };
