@@ -13,7 +13,6 @@ module.exports = function GreetingsRoute (greetings) {
     async function greetedUsers (req, res) {
         try {
             res.render('greeted', {
-                greet: await greetings.getGreetData(),
                 users: await greetings.greetedUsers()
             });
         } catch (err) {
@@ -38,7 +37,7 @@ module.exports = function GreetingsRoute (greetings) {
             // err
         }
     }
-    // return functions
+
     return {
         toGreet,
         greetedUsers,

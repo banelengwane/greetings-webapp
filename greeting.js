@@ -48,9 +48,9 @@ module.exports = function Greeter (pool) {
     // }
     }
 
-    // async function getName (name) {
-    //     return name;
-    // }
+    async function getName (name) {
+        return name;
+    }
 
     async function getLang (taal) {
         return taal;
@@ -58,7 +58,7 @@ module.exports = function Greeter (pool) {
 
     async function getGreetData () {
         return {
-            igama: greetedUsers(),
+            igama: getName(),
             language: getLang()
         };
     }
@@ -79,15 +79,16 @@ module.exports = function Greeter (pool) {
     }
 
     async function greetedUsers () {
-        const countUsers = await pool.query('select user_name from names');
-        const users = countUsers.rows;
-        const userList = [];
-        for (var key in users) {
-            if (users.hasOwnProperty(key)) {
-                userList.push(users[key]);
-            }
-        }
-        return userList;
+        const countUsers = await pool.query('select user_name, counter from names');
+        const names = countUsers.rows;
+        return names;
+        // const userList = [];
+        // for (var key in users) {
+        //     if (users.hasOwnProperty(key)) {
+        //         userList.push(users[key]);
+        //     }
+        // }
+        // return userList;
     }
 
     return {

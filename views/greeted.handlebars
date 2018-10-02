@@ -1,6 +1,20 @@
 <div class="row">
-  {{!-- <h3>Greeted Users</h3>
-  {{#each users}}
-  <p>{{igama}}</p>
-  {{/each}} --}}
+  <h3>Greeted Users</h3>
+  <table>
+    <tr>
+      <th>Names</th>
+      <th>Counted</th>
+    </tr>
+      {{#each users}}
+    <tr>
+          <td class="{{user_name}}">
+            <a href="/name">{{user_name}}</a>
+          </td> 
+          <td>
+            {{counter}}
+          </td>
+    </tr>
+    {{/each}}
+  </table>
+
 </div>
