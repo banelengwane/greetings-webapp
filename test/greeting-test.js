@@ -60,7 +60,7 @@ describe('Greeting widget', function () {
         assert.strictEqual(greeting, 'Molo Busisile');
         assert.strictEqual(greeting2, 'Good day Banele');
         assert.strictEqual(count, 2);
-        assert.deepStrictEqual(await greetings.greetedUsers(), [ { user_name: 'busisile' }, { user_name: 'banele' } ]);
+        assert.deepStrictEqual(await greetings.greetedUsers(), [ { user_name: 'busisile', counter: 1 }, { user_name: 'banele', counter: 1 } ]);
     });
 
     after(function () {
