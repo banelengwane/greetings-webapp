@@ -38,6 +38,14 @@ module.exports = function GreetingsRoute (greetings) {
         }
     }
 
+    async function home (req, res) {
+        try {
+            res.render('home', { count: await greetings.greetCount() }
+            );
+        } catch (err) {
+            // err
+        }
+    }
     async function name (req, res) {
         let newName = req.params.user_name;
         let person = await greetings.getNames(newName);
@@ -50,7 +58,8 @@ module.exports = function GreetingsRoute (greetings) {
         toGreet,
         greetedUsers,
         counted,
-        clear
+        clear,
+        home
     };
 }
 ;

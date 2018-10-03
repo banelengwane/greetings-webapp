@@ -72,7 +72,9 @@ app.get('/greeted', greetingsRoute.greetedUsers);
 
 app.post('/greetings', greetingsRoute.toGreet);
 
-app.get('/name/:user_name', greetingsRoute.name)
+app.get('/name/:user_name', greetingsRoute.name);
+
+app.get('/home', greetingsRoute.home);
 
 app.get('/clear', greetingsRoute.clear);
 

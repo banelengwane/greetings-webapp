@@ -1,17 +1,31 @@
-<div class="row">
-  <h3>Greeted Users</h3>
+<div class="row msg">
+
+  <div>
+    <h2>Greeted Users</h3>
+
+    <h4 >Click below a Name to view number of counts for each name</h4>    
+  </div>
   <table>
     <tr>
       <th>Names</th>
     </tr>
-      {{#each users}}
+    {{#each users}}
     <tr>
-          <td class="{{user_name}}">
-            <a href="/name/{{user_name}}">{{user_name}}</a>
-          </td> 
+      <td class="{{user_name}}">
+        <a href="/name/{{user_name}}"><span style="text-transform: capitalize;">{{user_name}}</span> </a>
+      </td>
     </tr>
     {{/each}}
   </table>
 
- 
+  <div class="navigation">
+    <a class="reset" href="/clear"> Reset </a>  
+    {{!-- <input type="button-primary button" value="Go back!" onclick="history.back()"> --}}
+    <span><a class="back" value="Go back!" onclick="history.back()"> Back </a></span> 
+  </div>
+      {{!-- <form>
+      
+    </form>  --}}
+
+
 </div>

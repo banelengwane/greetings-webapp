@@ -1,14 +1,55 @@
-
-.reset{
-  font-size: 5rem;
+.home{
+  font-size: 4rem;
+  padding: 2rem;
 }
+.reset, .back {
+  padding: 2rem;
+  font-size: 4rem;
+}
+
+.back {
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 2rem;
+  font-size: 4rem;
+
+}
+
 inpu{
   font-size: 5rem;
 }
 
 .newText{
+  text-align: center;
   font-size: 3rem;
+  background-color: beige;
 }
+
+.app{
+  background-color: beige;
+  text-align: center;
+  padding: 10px;
+}
+.printHere, .msg {
+  background-color: beige;
+  text-align: center;
+}
+
+.navigation{
+  text-align: center;
+}
+
+.extra{
+  text-align: center;
+  padding-top: 1rem;
+}
+body {
+  font-size: 2em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: brown; }
+
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Grid
@@ -34,20 +75,12 @@ inpu{
 	text-align: center;
 }
 body{
-	color: white;
-	background:
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0,
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.3) 13%, rgba(255,255,255,0) 14%) 0 0,
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 17%, rgba(255,255,255,.43) 19%, rgba(255,255,255,0) 20%) 0 110px,
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -130px -170px,
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) 130px 370px,
-radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.2) 13%, rgba(255,255,255,0) 14%) 0 0,
-linear-gradient(45deg, #343702 0%, #184500 20%, #187546 30%, #006782 40%, #0b1284 50%, #760ea1 60%, #83096e 70%, #840b2a 80%, #b13e12 90%, #e27412 100%);
-background-size: 470px 470px, 970px 970px, 410px 410px, 610px 610px, 530px 530px, 730px 730px, 100% 100%;
-background-color: #840b2a;
+  background: brown;
 }
 table{
-	width: 100%;
+  padding-left: 2rem;
+  width: 100%;
+  background-color: beige;
 }
 @media (min-width: 500px) {
 .container {
@@ -143,12 +176,7 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
-body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-  line-height: 1.6;
-  font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: white; }
+
 
 
 /* Typography
@@ -439,4 +467,4 @@ there.
 @media (min-width: 1000px) {}
 
 /* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {}}

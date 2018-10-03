@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="/css/skeleton.css" type="text/css" />
-<script src="messages.js"></script>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 <meta name="viewport" content="width=device-width" />
 
@@ -12,15 +11,17 @@
     {{success}}
   </div>
 
-  <div class="row">
-    <h1>Greetings</h1>
-  </div>
-
-  <div class="row">
+  <div class="row app">
+    <div class="row">
+      <h1>Greetings WebApp</h1>
+    </div>
     <form action="/greetings" method="post">
       <div class="row">
         <span class="label-body">Name</span>
         <input type="text" name="greetingArea" value="" placeholder="enter a name " class="theName" id="theName">
+        <a href="greeted">
+          <h3>Counter: <span class="numberOfGreetings">{{count}}</span></h3>
+        </a>
       </div>
       <input type="radio" name="language" class="language" value="English">
       <span class="label-body">English</span>
@@ -30,20 +31,17 @@
       <span class="label-body">IsiXhosa</span>
 
       <div class="row">
-        <a href="greeted">
-          <h3>Counter: <span class="numberOfGreetings">{{count}}</span></h3>
-        </a>
         <button class="button-primary greetMeBtn" on type="submit" name="button">Greetme</button>
       </div>
 
     </form>
-  </div>
-  <div class="row printHere">
-    {{greet}}
-  </div>
 
-    <div>
-      <a class="reset" href="/clear"> Reset </a>
+    <div class="row printHere">
+      {{greet}}
     </div>
 
+    <div class="row extra">
+      <img src="/images/greetings.jpg" alt="shake" width="50%">
+    </div>
+  </div>
 </div>
